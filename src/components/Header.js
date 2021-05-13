@@ -1,10 +1,10 @@
 import Button from './Button';
 
-const Header = () => {
+const Header = ({onAdd}) => {
     return (
         <header className="header">
             <h1>Todo</h1>
-            <Button />
+            <Button onClick={onAdd} />
         </header>
     )
 }

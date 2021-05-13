@@ -34,13 +34,17 @@ function App() {
   ]);
 
   const deleteTodo = (id) => {
-    console.log('delete todo');
+    setTodos(todos.filter((todo) => todo.id !== id))
+  }
+
+  const toggleFlag = (id) => {
+    setTodos(todos.map((todo) => todo.id === id ? {...todo, flag: !todo.flag} : todo))
   }
 
   return (
     <div className="App">
       <Header />
-      <Todos todos={todos} onDelete={deleteTodo} />
+      {todos.length > 0 ? <Todos todos={todos} onDelete={deleteTodo} onToggle={toggleFlag} /> : 'Nothing but time on your hands'}
       <Footer />
     </div>
   );

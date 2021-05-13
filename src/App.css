@@ -99,10 +99,11 @@ button {
 .flag {
   color: #0962f6;
   font-size: 1.5rem;
-  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .delete {
-  margin-left: 1rem;
+  color: #636260;
+  margin-right: 1rem;
   cursor: pointer;
 }

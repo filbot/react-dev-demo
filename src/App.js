@@ -1,49 +1,76 @@
 import './App.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Header from './components/Header';
 import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
 import Footer from './components/Footer';
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      "id": 1,
-      "text": "Learn react context",
-      "flag": false
-    },
-    {
-      "id": 2,
-      "text": "Learn reduce in react",
-      "flag": false
-    },
-    {
-      "id": 3,
-      "text": "Build out demo for interview",
-      "flag": false
-    },
-    {
-      "id": 4,
-      "text": "Troll internet for e36 BMW",
-      "flag": true
-    },
-    {
-      "id": 5,
-      "text": "Get hired and change the world",
-      "flag": false
-    }
-  ]);
+  const [showForm, setShowForm] = useState(true);
+  const [todos, setTodos] = useState([]);
 
-  const deleteTodo = (id) => {
+  useEffect(() => {
+    const getData = async () => {
+      const dataFromServer = await fetchTodos();
+      setTodos(dataFromServer);
+    }
+    getData();
+  }, []);
+
+  const fetchTodos = async () => {
+    const resp = await fetch('http://localhost:3001/todos');
+    const data = await resp.json();
+    return data;
+  }
+
+  const fetchTodo = async (id) => {
+    const resp = await fetch(`http://localhost:3001/todos/${id}`);
+    const data = await resp.json();
+    return data;
+  }
+
+  const deleteTodo = async (id) => {
+    await fetch(`http://localhost:3001/todos/${id}`, {
+      method: 'DELETE'
+    })
+
     setTodos(todos.filter((todo) => todo.id !== id))
   }
 
-  const toggleFlag = (id) => {
-    setTodos(todos.map((todo) => todo.id === id ? {...todo, flag: !todo.flag} : todo))
+  const toggleFlag = async (id) => {
+    const todoToToggle = await fetchTodo(id);
+    const updatedTodo = {...todoToToggle, flag: !todoToToggle.flag};
+    const resp = await fetch(`http://localhost:3001/todos/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(updatedTodo)
+    })
+    const data = await resp.json();
+
+    setTodos(todos.map((todo) => todo.id === id ? {...todo, flag: data.flag} : todo))
+  }
+
+  const addTodo = async (todo) => {
+    const resp = await fetch('http://localhost:3001/todos', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(todo)
+    })
+
+    const data = await resp.json();
+
+
+    setTodos([...todos, data]);
   }
 
   return (
     <div className="App">
-      <Header />
+      <Header onAdd={() => setShowForm(!showForm)} />
+      {showForm && <AddTodo onAdd={addTodo} />}
       {todos.length > 0 ? <Todos todos={todos} onDelete={deleteTodo} onToggle={toggleFlag} /> : 'Nothing but time on your hands'}
       <Footer />
     </div>

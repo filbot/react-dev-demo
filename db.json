@@ -1,19 +1,29 @@
 {
-  "posts": [
+  "todos": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "text": "Learn react context",
+      "flag": false
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "text": "Learn reduce in react",
+      "flag": false
+    },
+    {
+      "id": 3,
+      "text": "Build out demo for interview",
+      "flag": false
+    },
+    {
+      "id": 4,
+      "text": "Troll internet for e36 BMW",
+      "flag": true
+    },
+    {
+      "id": 5,
+      "text": "Get hired and change the world",
+      "flag": false
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

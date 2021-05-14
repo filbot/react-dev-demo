@@ -123,3 +123,8 @@ button.dark {
 .toggle-theme {
   cursor: pointer;
 }
+
+.empty-todo-list {
+  text-align: center;
+  color: #aaa;
+}

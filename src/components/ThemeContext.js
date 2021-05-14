@@ -16,7 +16,7 @@ export const ThemeProvider = ({children}) => {
     const [darkTheme, setDarkTheme] = useState(false);
 
     const toggleTheme = () => {
-        setDarkTheme(prevDarkTheme => !prevDarkTheme);
+        setDarkTheme(themeValue => !themeValue);
     }
 
     return (

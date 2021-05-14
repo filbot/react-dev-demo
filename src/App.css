@@ -134,3 +134,18 @@ button.dark {
   text-align: center;
   color: #aaa;
 }
+
+form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+form label {
+  font-size: 12px;
+}
+
+.form-control {
+  display: flex;
+  align-items: center;
+}

@@ -21,8 +21,7 @@ const AddTodo = ({onAdd}) => {
     return (
         <form className="add-todo-form" onSubmit={onSubmit}>
             <div className="form-control">
-                <label>Todo</label>
-                <input type="text" placeholder="add todo" value={text} onChange={(e) => setText(e.target.value)} />
+                <input type="text" placeholder="Write a todo" value={text} onChange={(e) => setText(e.target.value)} />
             </div>
             <div className="form-control">
                 <label>Set flag</label>

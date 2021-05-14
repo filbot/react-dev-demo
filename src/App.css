@@ -57,22 +57,30 @@ select {
   font: inherit;
 }
 
-body {
-  background-color: #f5f5f5;
-  color: #141419;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
 
+.header.dark {
+  color: #fff;
+}
+
 .App {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 3rem;
+  padding: 3rem;
+
+  background-color: #f5f5f5;
+  color: #141419;
+}
+
+.App.dark {
+  background-color: #212529;
+  color: #fff;
 }
 
 .footer {
@@ -91,6 +99,10 @@ button {
 	cursor: pointer;
 }
 
+button.dark {
+  background-color: #4382ed;
+}
+
 .todo-item {
   display: flex;
   align-items: center;
@@ -105,5 +117,9 @@ button {
 .delete {
   color: #636260;
   margin-right: 1rem;
+  cursor: pointer;
+}
+
+.toggle-theme {
   cursor: pointer;
 }

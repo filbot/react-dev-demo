@@ -6,10 +6,12 @@ import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import Footer from './components/Footer';
 import About from './components/About';
+import {useTheme} from './components/ThemeContext';
 
 function App() {
   const [showForm, setShowForm] = useState(true);
   const [todos, setTodos] = useState([]);
+  const darkTheme = useTheme();
 
   useEffect(() => {
     const getData = async () => {
@@ -71,7 +73,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className={darkTheme ? "App dark" : "App"}>
         <Header onAdd={() => setShowForm(!showForm)} />
         <Route path='/' exact render={(props) => (
           <>

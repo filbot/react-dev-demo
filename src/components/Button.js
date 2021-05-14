@@ -1,6 +1,10 @@
+import {useTheme} from './ThemeContext';
+
 const Button = () => {
+    const darkTheme = useTheme();
+
     return (
-        <button>+</button>
+        <button className={darkTheme ? "dark" : ""}>+</button>
     )
 }
 

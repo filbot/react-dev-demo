@@ -7,7 +7,7 @@ const Footer = () => {
 
     return (
         <footer className="footer">
-            {location.pathname === '/' && <Link to='/about'>About this app</Link>} | <span className="toggle-theme" onClick={toggleTheme}>Toggle theme</span>
+            {location.pathname === '/' && <Link to='/about'>About this app</Link>} <span className="toggle-theme" onClick={toggleTheme}>Toggle theme</span>
         </footer>
     )
 }

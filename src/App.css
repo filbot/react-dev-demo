@@ -128,6 +128,10 @@ button.dark {
 
 .toggle-theme {
   cursor: pointer;
+  color: #aaa;
+  text-decoration: none;
+  border: solid #aaa 1px;
+  padding: 0.5rem;
 }
 
 .empty-todo-list {
@@ -148,4 +152,11 @@ form label {
 .form-control {
   display: flex;
   align-items: center;
+}
+
+a {
+  color: #aaa;
+  text-decoration: none;
+  border: solid #aaa 1px;
+  padding: 0.5rem;
 }

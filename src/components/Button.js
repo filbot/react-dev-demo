@@ -1,10 +1,10 @@
 import {useTheme} from './ThemeContext';
 
-const Button = () => {
+const Button = ({toggleForm}) => {
     const darkTheme = useTheme();
 
     return (
-        <button className={darkTheme ? "dark" : ""}>+</button>
+        <button className={darkTheme ? "dark" : ""} onClick={toggleForm}>+</button>
     )
 }
 

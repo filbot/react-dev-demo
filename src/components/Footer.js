@@ -1,7 +1,9 @@
 import {Link, useLocation} from 'react-router-dom';
+import { useThemeUpdate } from './ThemeContext';
 
-const Footer = ({toggleTheme}) => {
+const Footer = () => {
     const location = useLocation();
+    const toggleTheme = useThemeUpdate();
 
     return (
         <footer className="footer">

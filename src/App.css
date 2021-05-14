@@ -59,12 +59,18 @@ select {
 
 .header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
 
 .header.dark {
   color: #fff;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 500;
 }
 
 .App {

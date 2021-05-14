@@ -8,7 +8,7 @@ const Header = ({onAdd}) => {
 
     return (
         <header className={darkTheme ? "header dark" : "header"}>
-            <h1>Todo</h1>
+            <div className="title">TODO</div>
             {location.pathname === '/' && <Button onClick={onAdd} />}
         </header>
     )

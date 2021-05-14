@@ -70,7 +70,7 @@ function App() {
     <Router>
       <ThemeProvider>
         <div className={darkTheme ? "App dark" : "App"}>
-          <Header onAdd={() => setShowForm(!showForm)} />
+          <Header toggleForm={() => setShowForm(!showForm)} />
           <Route path='/' exact render={(props) => (
             <>
               {showForm && <AddTodo onAdd={addTodo} />}
